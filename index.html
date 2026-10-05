@@ -35,6 +35,9 @@
                     </p>
                     <p class="taskDescription" id="detailDesc">Select a task from the left list to view details.</p>
                     
+                    <!--Image view-->
+                    <img id="detailImage" src="" alt="Task attachments" style="display: none; max-width: 100%; height: auto; border-radius: 8px; margin-top: 10px;" />
+
                     <!-- Action buttons for selected task -->
                     <div class="actionButtons">
                         <button type="button" id="editBtn" class="actionBtn editBtn">Edit Task</button>
@@ -60,10 +63,23 @@
                     <div class="taskGroup">
                         <label for="taskDate">Due date</label>
                         <input type="date" id="taskDate" name="dueDate">
+                        <label for="reminderDate">Reminder</label>
+                        <input type="datetime-local" id="reminderDate" name="reminderDate">
                     </div>
 
-                    <button type="submit" id="submitBtn" class="submitButton">Add Task</button>
-                    <button type="button" id="cancelEditBtn" class="cancelButton" style="display: none;">Cancel Edit</button>
+                    <div class="imageAttachment">
+                        <video id="videoElm" autoplay playsinline style="width: 100%; max-width: 400px;"></video>
+                        <canvas id="canvasElm" style="display: none;"></canvas>
+                        <button type="button" id="camera-Video">Capture Media</button>
+                        <button type="button" id="take-picture">Take Photo</button>
+                        <img class="captured-img" id="photoPreview" src=""/>
+                    </div>
+
+                    <div class="taskGroup">
+                        <button type="submit" id="submitBtn" class="submitButton">Add Task</button>
+                        <button type="button" id="cancelEditBtn" class="cancelButton" style="display: none;">Cancel Edit</button>
+                    <div> <!--ヨミビトシラズ -->
+                        
                 </form>
             </aside>
         </main>
