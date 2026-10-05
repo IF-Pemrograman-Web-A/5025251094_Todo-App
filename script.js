@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskTitleInput = document.getElementById("taskTitle");
     const taskDescInput = document.getElementById("taskDesc");
     const taskDateInput = document.getElementById("taskDate");
+    const taskNotifInput = document.getElementById("reminderDate");
     const submitBtn = document.getElementById("submitBtn");
     const cancelEditBtn = document.getElementById("cancelEditBtn");
     const formHeading = document.getElementById("formHeading");
@@ -160,13 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 startDetail();
             });
 
-            // Handle checking/unchecking finished tasks
-            checkbox.addEventListener("change", () => {
-                todo.completed = checkbox.checked;
-                startList();
-                startDetail();
-            });
-
             // Select task on card click (ignoring checkbox)
             li.addEventListener("click", (e) => {
                 if (e.target !== checkbox) {
@@ -217,6 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const title = taskTitleInput.value.trim();
         const desc = taskDescInput.value.trim();
         const dueDate = taskDateInput.value;
+        const notifDue = taskNotifInput.value;
 
         if (!title) return;
 
@@ -227,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 taskToEdit.title = title;
                 taskToEdit.desc = desc;
                 taskToEdit.dueDate = dueDate;
+                taskToEdit.notifDue = notifDue;
                 if(current_image_data){
                     taskToEdit.image = current_image_data;
                 }
@@ -235,12 +231,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 const store = transaction.objectStore("tasks");
                 store.put(taskToEdit);
             }
+            scheduleNotif(title, notifDue)
             resetFormState();
             startList();
             startDetail();
         } else {
             // Create new task object
-            const newTask = { title, desc, dueDate, image: current_image_data, completed: false };
+            const newTask = { title, desc, dueDate, notifDue, image: current_image_data, completed: false };
 
             current_image_data = null;
             photoView.style.display = 'none';
@@ -254,6 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 selectedTaskId = newTask.id;
                 todoForm.reset()
 
+                scheduleNotif(title, notifDue);
                 resetFormState();
                 startList();
                 startDetail();
