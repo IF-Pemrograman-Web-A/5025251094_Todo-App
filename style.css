@@ -1,3 +1,39 @@
+<<<<<<< Updated upstream
+=======
+:root {
+    --bg-body: beige;
+    --text-body: #555555;
+    --bg-card: #ffffff;
+    --bg-header: darkred;
+    --text-header: #ffffff;
+    --accent-heading: indianred;
+    --border-divider: #e5e5e5;
+    --border-item: #d3d3d3;
+    --bg-hover: #e0e0e0;
+    --bg-active-border: lightcoral;
+    --bg-selected: #f5f5f5;
+    --text-dark: #222222;
+    --text-subtle: darkslategrey;
+}
+
+body.dark-mode {
+    --bg-body: #1a1a1a;
+    --text-body: #cccccc;
+    --bg-card: #2a2a2a;
+    --bg-header: #4a0000;
+    --text-header: #ffffff;
+    --accent-heading: #e57373;
+    --border-divider: #444444;
+    --border-item: #444444;
+    --bg-hover: #3a3a3a;
+    --bg-active-border: #e57373;
+    --bg-selected: #333333;
+    --text-dark: #f0f0f0;
+    --text-subtle: #b0b0b0;
+}
+
+/* Universal Box-Sizing to prevent elements from overflowing boundaries */
+>>>>>>> Stashed changes
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,13 +47,42 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden; /* Stops horizontal screen clipping */
 }
 
+<<<<<<< Updated upstream
 .webHeader, .webFooter {
     background-color: darkred;
     color: white;
     text-align: center;
+=======
+/* Header & Navigation */
+.webHeader {
+    background-color: var(--bg-header);
+    color: var(--text-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+>>>>>>> Stashed changes
     padding: 1rem;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mainNav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.mainNav a {
+    color: var(--text-header);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mainNav a:hover {
+    text-decoration: underline;
 }
 
 .webFooter {
@@ -25,6 +90,33 @@ body {
     font-size: 0.9rem;
 }
 
+<<<<<<< Updated upstream
+=======
+/* Shared Button Base Styles */
+.modeButt, 
+.imageAttachment button,
+.actionBtn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.modeButt {
+    background-color: var(--accent-heading);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.modeButt:hover {
+    background-color: #d9534f;
+}
+
+/* Layout Container */
+>>>>>>> Stashed changes
 .layoutContainer {
     display: flex;
     flex-direction: row;
@@ -49,6 +141,7 @@ body {
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 0; /* Prevents flex children from pushing out bounds */
 }
 
 h2 {
@@ -59,10 +152,17 @@ h2 {
 }
 
 .todoItem {
+<<<<<<< Updated upstream
+=======
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+>>>>>>> Stashed changes
     padding: 1rem;
     border: 1px solid lightgray;
     border-radius: 6px;
     margin-bottom: 0.75rem;
+<<<<<<< Updated upstream
     cursor: pointer;
     transition: background 0.2s;
 }
@@ -73,6 +173,20 @@ h2 {
 
 .todoItem.active {
     border-left: 5px solid lightcoral;
+=======
+    background-color: var(--bg-card);
+    word-break: break-word; /* Prevents long titles from blowing out container width */
+}
+
+.todoItem.completed .taskContent h3 {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.taskContent {
+    flex: 1;
+    min-width: 0;
+>>>>>>> Stashed changes
 }
 
 .todoItem h3 {
@@ -85,6 +199,7 @@ h2 {
     color: darkslategrey;
 }
 
+<<<<<<< Updated upstream
 /* Static Selected Task View */
 .selectedTask {
     background-color: whitesmoke;
@@ -129,26 +244,80 @@ h2 {
 .todoDetail h3 {
     font-size: 1.1rem;
     color: black;
+=======
+/* Form Styling */
+.todoDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+>>>>>>> Stashed changes
 }
 
 .taskGroup {
     display: flex;
-    align-items: center;
-    gap: 0.8rem;
+    flex-direction: column; /* Stack label on top of inputs on smaller screens */
+    gap: 0.4rem;
 }
 
 .taskGroup label {
     font-weight: bold;
     font-size: 0.9rem;
-    min-width: 90px;
+    color: var(--text-dark);
 }
 
-.taskGroup input, .taskGroup textarea {
-    flex: 1;
+.taskGroup input, 
+.taskGroup textarea {
+    width: 100%;
     padding: 0.6rem;
     border: 1px solid lightgrey;
     border-radius: 4px;
     font-size: 1rem;
+<<<<<<< Updated upstream
+=======
+    background-color: var(--bg-card);
+    color: var(--text-dark);
+}
+
+/* Camera & Image Controls */
+.imageAttachment {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.imageAttachment video, 
+.imageAttachment img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+#camera-Video {
+    background-color: #3498db;
+    color: white;
+}
+
+#take-picture {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.editBtn {
+    background-color: #3498db;
+    color: white;
+}
+
+.deleteBtn {
+    background-color: #e74c3c;
+    color: white;
+>>>>>>> Stashed changes
 }
 
 .submitButton {
@@ -160,15 +329,63 @@ h2 {
     font-size: 1rem;
     cursor: pointer;
     font-weight: bold;
-    margin-top: 0.5rem;
 }
 
 .submitButton:hover {
     background-color: lightseagreen;
 }
 
+<<<<<<< Updated upstream
 @media (max-width: 768px) {
     .layoutContainer {
+=======
+.cancelButton {
+    padding: 0.5rem;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE MEDIA QUERIES
+   ========================================== */
+@media screen and (max-width: 768px) {
+    .webHeader {
+>>>>>>> Stashed changes
         flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .layoutContainer {
+        flex-direction: column; /* Stacks panels vertically on mobile */
+        padding: 0.8rem;
+        gap: 1rem;
+    }
+
+    .todoPanel, .detailPanel {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .todoItem {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+
+    .actionButtons {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .imageAttachment div {
+        flex-direction: column; /* Stacks camera buttons on narrow mobile screens */
+    }
+
+    .imageAttachment button {
+        width: 100%;
     }
 }
