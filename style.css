@@ -1,7 +1,5 @@
-<<<<<<< Updated upstream
-=======
 :root {
-    --bg-body: #F5F3E5;
+    --bg-body: beige;
     --text-body: #555555;
     --bg-card: #ffffff;
     --bg-header: darkred;
@@ -33,7 +31,6 @@ body.dark-mode {
 }
 
 /* Universal Box-Sizing to prevent elements from overflowing boundaries */
->>>>>>> Stashed changes
 * {
     box-sizing: border-box;
     margin: 0;
@@ -42,29 +39,27 @@ body.dark-mode {
 }
 
 body {
-    background-color: beige;
-    color: gray;
+    background-color: var(--bg-body);
+    color: var(--text-body);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden; /* Stops horizontal screen clipping */
 }
 
-.webHeader, .webFooter {
-    background-color: darkred;
-    color: white;
-    text-align: center;
+/* Header & Navigation */
+.webHeader {
+    background-color: var(--bg-header);
+    color: var(--text-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1rem;
-<<<<<<< Updated upstream
-=======
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.headerButtons {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+.headerButtons { display: flex; align-items: center; gap: 0.5rem;}
 
 .mainNav {
     display: flex;
@@ -80,18 +75,19 @@ body {
 
 .mainNav a:hover {
     text-decoration: underline;
->>>>>>> Stashed changes
 }
 
 .webFooter {
+    background-color: var(--bg-header);
+    color: var(--text-header);
+    text-align: center;
+    padding: 1rem;
     margin-top: auto;
     font-size: 0.9rem;
 }
 
-<<<<<<< Updated upstream
-=======
 /* Shared Button Base Styles */
-.modeButt, .installButt,
+.modeButt, 
 .imageAttachment button,
 .actionBtn {
     padding: 0.5rem 1rem;
@@ -114,7 +110,6 @@ body {
 }
 
 /* Layout Container */
->>>>>>> Stashed changes
 .layoutContainer {
     display: flex;
     flex-direction: row;
@@ -125,120 +120,128 @@ body {
     margin: 0 auto;
 }
 
-.todoPanel {
+.todoPanel, .detailPanel {
     flex: 1;
-    background: white;
+    background: var(--bg-card);
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.detailPanel {
-    flex: 1;
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 0; /* Prevents flex children from pushing out bounds */
 }
 
 h2 {
     margin-bottom: 1rem;
-    color: indianred;
-    border-bottom: 2px solid whitesmoke;
+    color: var(--accent-heading);
+    border-bottom: 2px solid var(--border-divider);
     padding-bottom: 0.5rem;
 }
 
+.list {
+    list-style: none;
+}
+
 .todoItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
     padding: 1rem;
-    border: 1px solid lightgray;
+    border: 1px solid var(--border-item);
     border-radius: 6px;
     margin-bottom: 0.75rem;
-    cursor: pointer;
-    transition: background 0.2s;
+    background-color: var(--bg-card);
+    word-break: break-word; /* Prevents long titles from blowing out container width */
 }
 
-.todoItem:hover {
-    background-color: lightgray;
+.todoItem.completed .taskContent h3 {
+    text-decoration: line-through;
+    opacity: 0.6;
 }
 
-.todoItem.active {
-    border-left: 5px solid lightcoral;
+.taskContent {
+    flex: 1;
+    min-width: 0;
 }
 
 .todoItem h3 {
     font-size: 1.1rem;
     margin-bottom: 0.25rem;
+    color: var(--text-dark);
 }
 
 .todoItem p {
     font-size: 0.85rem;
-    color: darkslategrey;
+    color: var(--text-subtle);
 }
 
-/* Static Selected Task View */
-.selectedTask {
-    background-color: whitesmoke;
-    padding: 1rem;
-    border-radius: 6px;
-    border-left: 4px solid indianred;
-    margin-bottom: 1rem;
-}
-
-.selectedTask h3 {
-    font-size: 1.15rem;
-    color: gray;
-    margin-bottom: 0.4rem;
-}
-
-.taskMeta {
-    font-size: 0.85rem;
-    color: slategrey;
-    margin-bottom: 0.6rem;
-}
-
-.taskDescription {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    color: #444;
-}
-
-.divider {
-    border: 0;
-    height: 1px;
-    background: whitesmoke;
-    margin: 1.25rem 0;
-}
-
-/* Task Form Component */
+/* Form Styling */
 .todoDetail {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
-}
-
-.todoDetail h3 {
-    font-size: 1.1rem;
-    color: black;
+    gap: 1rem;
 }
 
 .taskGroup {
     display: flex;
-    align-items: center;
-    gap: 0.8rem;
+    flex-direction: column; /* Stack label on top of inputs on smaller screens */
+    gap: 0.4rem;
 }
 
 .taskGroup label {
     font-weight: bold;
     font-size: 0.9rem;
-    min-width: 90px;
+    color: var(--text-dark);
 }
 
-.taskGroup input, .taskGroup textarea {
-    flex: 1;
+.taskGroup input, 
+.taskGroup textarea {
+    width: 100%;
     padding: 0.6rem;
-    border: 1px solid lightgrey;
+    border: 1px solid var(--border-item);
     border-radius: 4px;
     font-size: 1rem;
+    background-color: var(--bg-card);
+    color: var(--text-dark);
+}
+
+/* Camera & Image Controls */
+.imageAttachment {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.imageAttachment video, 
+.imageAttachment img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+#camera-Video {
+    background-color: #3498db;
+    color: white;
+}
+
+#take-picture {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.editBtn {
+    background-color: #3498db;
+    color: white;
+}
+
+.deleteBtn {
+    background-color: #e74c3c;
+    color: white;
 }
 
 .submitButton {
@@ -250,16 +253,12 @@ h2 {
     font-size: 1rem;
     cursor: pointer;
     font-weight: bold;
-    margin-top: 0.5rem;
 }
 
 .submitButton:hover {
     background-color: lightseagreen;
 }
 
-<<<<<<< Updated upstream
-@media (max-width: 768px) {
-=======
 .cancelButton {
     padding: 0.5rem;
     background-color: gray;
@@ -269,31 +268,7 @@ h2 {
     cursor: pointer;
 }
 
-/* OFFLINE SCREEN STYLING */
-.offlineCont {
-    text-align: center;
-    padding: 3rem 1rem;
-}
 
-.offlineCard > div {
-    font-size: 4 rem;
-    margin-bottom: 1rem;
-}
-
-.offlineCard > p {
-    color: #666;
-    max-width: 400px;
-    margin: 0 auto 1.5rem auto;
-}
-
-.cancelButton {
-    padding: 0.5rem 1rem;
-    background-color: gray;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
 
 /* ==========================================
     MOBILE RESPONSIVE MEDIA QUERIES
@@ -305,8 +280,33 @@ h2 {
         align-items: center;
     }
 
->>>>>>> Stashed changes
     .layoutContainer {
+        flex-direction: column; /* Stacks panels vertically on mobile */
+        padding: 0.8rem;
+        gap: 1rem;
+    }
+
+    .todoPanel, .detailPanel {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .todoItem {
         flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+
+    .actionButtons {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .imageAttachment div {
+        flex-direction: column; /* Stacks camera buttons on narrow mobile screens */
+    }
+
+    .imageAttachment button {
+        width: 100%;
     }
 }

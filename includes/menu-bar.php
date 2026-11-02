@@ -15,7 +15,7 @@
             <a href="team.php" class="navLink">Shared</a>
         </nav>
         <div class="headerButtons">
-            <button id="install-button" class="installButt" hidden>Install App</button>
+            <button id="install-button" class="modeButt">Install App</button>
             <button id="modeToggle" class="modeButt">Mode Toggle</button>
         </div>
     </header>
