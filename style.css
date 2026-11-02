@@ -1,3 +1,39 @@
+<<<<<<< Updated upstream
+=======
+:root {
+    --bg-body: #F5F3E5;
+    --text-body: #555555;
+    --bg-card: #ffffff;
+    --bg-header: darkred;
+    --text-header: #ffffff;
+    --accent-heading: indianred;
+    --border-divider: #e5e5e5;
+    --border-item: #d3d3d3;
+    --bg-hover: #e0e0e0;
+    --bg-active-border: lightcoral;
+    --bg-selected: #f5f5f5;
+    --text-dark: #222222;
+    --text-subtle: darkslategrey;
+}
+
+body.dark-mode {
+    --bg-body: #1a1a1a;
+    --text-body: #cccccc;
+    --bg-card: #2a2a2a;
+    --bg-header: #4a0000;
+    --text-header: #ffffff;
+    --accent-heading: #e57373;
+    --border-divider: #444444;
+    --border-item: #444444;
+    --bg-hover: #3a3a3a;
+    --bg-active-border: #e57373;
+    --bg-selected: #333333;
+    --text-dark: #f0f0f0;
+    --text-subtle: #b0b0b0;
+}
+
+/* Universal Box-Sizing to prevent elements from overflowing boundaries */
+>>>>>>> Stashed changes
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,6 +54,33 @@ body {
     color: white;
     text-align: center;
     padding: 1rem;
+<<<<<<< Updated upstream
+=======
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.headerButtons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mainNav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.mainNav a {
+    color: var(--text-header);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mainNav a:hover {
+    text-decoration: underline;
+>>>>>>> Stashed changes
 }
 
 .webFooter {
@@ -25,6 +88,33 @@ body {
     font-size: 0.9rem;
 }
 
+<<<<<<< Updated upstream
+=======
+/* Shared Button Base Styles */
+.modeButt, .installButt,
+.imageAttachment button,
+.actionBtn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.modeButt {
+    background-color: var(--accent-heading);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.modeButt:hover {
+    background-color: #d9534f;
+}
+
+/* Layout Container */
+>>>>>>> Stashed changes
 .layoutContainer {
     display: flex;
     flex-direction: row;
@@ -167,7 +257,55 @@ h2 {
     background-color: lightseagreen;
 }
 
+<<<<<<< Updated upstream
 @media (max-width: 768px) {
+=======
+.cancelButton {
+    padding: 0.5rem;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* OFFLINE SCREEN STYLING */
+.offlineCont {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.offlineCard > div {
+    font-size: 4 rem;
+    margin-bottom: 1rem;
+}
+
+.offlineCard > p {
+    color: #666;
+    max-width: 400px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.cancelButton {
+    padding: 0.5rem 1rem;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ==========================================
+    MOBILE RESPONSIVE MEDIA QUERIES
+   ========================================== */
+@media screen and (max-width: 768px) {
+    .webHeader {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+>>>>>>> Stashed changes
     .layoutContainer {
         flex-direction: column;
     }
